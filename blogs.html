@@ -2,142 +2,162 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Mirai Blogs</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            background: linear-gradient(#b8f3ff, #e8fbff);
+            background: #7FDBFF;
             font-family: Arial, sans-serif;
-            color: #24505c;
         }
 
-        header {
-            text-align: center;
-            padding: 25px;
-            font-size: 35px;
-            font-weight: bold;
+        /* WINDOWS MEDIA PLAYER FOTOĞRAFI */
+        .player {
+            position: relative;
+            width: 95vw;
+            max-width: 1200px;
+            aspect-ratio: 1536 / 1214;
+            margin: 30px auto;
+            background-image: url("blog-background.jpg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
         }
 
-        .blog-window {
-            width: 85%;
-            max-width: 1100px;
-            height: 600px;
-            margin: auto;
-            display: flex;
-            background: white;
-            border: 5px solid #6ed7e5;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
+        /* SOL MAVİ ALAN */
+        .categories {
+            position: absolute;
 
-       .sidebar {
-    width: 200px;
-    background: #7bdde8;
-    padding: 15px;
-    overflow-y: auto;
-    flex-shrink: 0;
-}
+            left: 1.2%;
+            top: 30%;
+            width: 12.5%;
+            height: 62%;
 
-        .sidebar h2 {
-            margin-top: 0;
-        }
-
-        .blog-button {
-    display: block;
-    width: 100%;
-    margin: 7px 0;
-    padding: 8px;
-    border: none;
-    border-radius: 10px;
-    background: white;
-    color: #24505c;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-        .blog-button:hover {
-            background: #d7fbff;
-        }
-
-        .content {
-            flex: 1;
-            padding: 40px;
             overflow-y: auto;
+            overflow-x: hidden;
+
+            padding: 10px;
         }
 
-        .content h1 {
-            font-size: 35px;
+        /* KATEGORİ BUTONLARI */
+        .category {
+            display: block;
+            width: 100%;
+
+            margin-bottom: 12px;
+            padding: 9px 5px;
+
+            border: none;
+            background: transparent;
+
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+
+            text-align: left;
+            cursor: pointer;
         }
 
-        .back {
-            margin-top: 20px;
-            text-align: center;
+        .category:hover {
+            color: #FFD83D;
         }
 
-        .back a {
-            color: #24505c;
+        /* ORTADAKİ BEYAZ ALAN */
+        .blog-content {
+            position: absolute;
+
+            left: 13.8%;
+            top: 14.5%;
+
+            width: 75%;
+            height: 61%;
+
+            padding: 35px;
+
+            overflow-y: auto;
+
+            background: rgba(255, 255, 255, 0.94);
         }
+
+        .blog-content h1 {
+            color: #0066CC;
+        }
+
+        .blog-content p {
+            color: #315A63;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
     </style>
 </head>
 
 <body>
 
-<header>
-    ♡ MIRAI BLOGS ♡
-</header>
+<div class="player">
 
-<div class="blog-window">
+    <!-- SOLDAKİ KATEGORİLER -->
+    <div class="categories">
 
-    <div class="sidebar">
-
-        <h2>BLOGS</h2>
-
-        <button class="blog-button" onclick="showBlog('diziler')">
-            📺 DİZİLER
+        <button class="category" onclick="showBlog('diziler')">
+            DİZİLER
         </button>
 
-        <button class="blog-button" onclick="showBlog('muzik')">
-            🎵 MÜZİK
+        <button class="category" onclick="showBlog('muzik')">
+            MÜZİK
         </button>
 
-        <button class="blog-button" onclick="showBlog('oyunlar')">
-            🎮 OYUNLAR
+        <button class="category" onclick="showBlog('oyunlar')">
+            OYUNLAR
         </button>
 
-        <button class="blog-button" onclick="showBlog('anime')">
-            🌸 ANİME
+        <button class="category" onclick="showBlog('sanat')">
+            SANAT
         </button>
 
-        <button class="blog-button" onclick="showBlog('sanat')">
-            🎨 SANAT
+        <button class="category" onclick="showBlog('anime')">
+            ANİME
         </button>
 
-        <button class="blog-button" onclick="showBlog('random')">
-            💭 RANDOM
+        <button class="category" onclick="showBlog('filmler')">
+            FİLMLER
+        </button>
+
+        <button class="category" onclick="showBlog('kitaplar')">
+            KİTAPLAR
+        </button>
+
+        <button class="category" onclick="showBlog('teknoloji')">
+            TEKNOLOJİ
+        </button>
+
+        <button class="category" onclick="showBlog('random')">
+            RANDOM
         </button>
 
     </div>
 
-    <div class="content" id="blog-content">
 
-        <h1>Bir blog seç! ♡</h1>
+    <!-- BEYAZ BLOG ALANI -->
+    <div class="blog-content" id="blog-content">
+
+        <h1>♡ MIRAI BLOGS ♡</h1>
 
         <p>
-            Soldaki başlıklardan birine tıklayarak
-            okumak istediğin blogu seçebilirsin.
+            Soldaki kategorilerden birini seç!
+        </p>
+
+        <p>
+            Seçtiğin blog yazısı burada görünecek.
         </p>
 
     </div>
 
 </div>
 
-<div class="back">
-    <a href="index.html">← Ana sayfaya dön</a>
-</div>
 
 <script>
 
@@ -148,70 +168,83 @@ function showBlog(blog) {
     if (blog === "diziler") {
 
         content.innerHTML = `
-            <h1>📺 Diziler</h1>
+            <h1>📺 DİZİLER</h1>
             <p>
-                Buraya diziler hakkındaki blog yazını yazacaksın.
+                Diziler hakkındaki blog yazılarım burada olacak.
             </p>
         `;
 
-    }
-
-    else if (blog === "muzik") {
+    } else if (blog === "muzik") {
 
         content.innerHTML = `
-            <h1>🎵 Müzik</h1>
+            <h1>🎵 MÜZİK</h1>
             <p>
-                Sevdiğim sanatçılar, müzik türleri ve
-                müzik hakkında düşüncelerim...
+                Müzik hakkındaki yazılarım burada olacak.
             </p>
         `;
 
-    }
-
-    else if (blog === "oyunlar") {
+    } else if (blog === "oyunlar") {
 
         content.innerHTML = `
-            <h1>🎮 Oyunlar</h1>
+            <h1>🎮 OYUNLAR</h1>
             <p>
-                Sevdiğim oyunlar ve oyunlar hakkındaki
-                düşüncelerim burada olacak.
+                Oyunlar hakkındaki yazılarım burada olacak.
             </p>
         `;
 
-    }
-
-    else if (blog === "anime") {
+    } else if (blog === "sanat") {
 
         content.innerHTML = `
-            <h1>🌸 Anime</h1>
+            <h1>🎨 SANAT</h1>
             <p>
-                İzlediğim animeler ve sevdiğim karakterler...
+                Sanat hakkındaki yazılarım burada olacak.
             </p>
         `;
 
-    }
-
-    else if (blog === "sanat") {
+    } else if (blog === "anime") {
 
         content.innerHTML = `
-            <h1>🎨 Sanat</h1>
+            <h1>🌸 ANİME</h1>
             <p>
-                Çizimler, sanatçılar ve sevdiğim eserler...
+                Anime hakkındaki yazılarım burada olacak.
             </p>
         `;
 
-    }
-
-    else if (blog === "random") {
+    } else if (blog === "filmler") {
 
         content.innerHTML = `
-            <h1>💭 Random</h1>
+            <h1>🎬 FİLMLER</h1>
             <p>
-                Aklıma gelen çeşitli şeyler, küçük yazılar
-                ve günlük düşüncelerim.
+                Filmler hakkındaki yazılarım burada olacak.
             </p>
         `;
 
+    } else if (blog === "kitaplar") {
+
+        content.innerHTML = `
+            <h1>📚 KİTAPLAR</h1>
+            <p>
+                Kitaplar hakkındaki yazılarım burada olacak.
+            </p>
+        `;
+
+    } else if (blog === "teknoloji") {
+
+        content.innerHTML = `
+            <h1>💻 TEKNOLOJİ</h1>
+            <p>
+                Teknoloji hakkındaki yazılarım burada olacak.
+            </p>
+        `;
+
+    } else if (blog === "random") {
+
+        content.innerHTML = `
+            <h1>💭 RANDOM</h1>
+            <p>
+                Aklıma gelen çeşitli şeyler burada olacak.
+            </p>
+        `;
     }
 
 }
