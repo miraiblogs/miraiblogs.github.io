@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mirai Blogs</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(#b8f3ff, #e8fbff);
+            font-family: Arial, sans-serif;
+            color: #24505c;
+        }
+
+        header {
+            text-align: center;
+            padding: 25px;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .blog-window {
+            width: 85%;
+            max-width: 1100px;
+            height: 600px;
+            margin: auto;
+            display: flex;
+            background: white;
+            border: 5px solid #6ed7e5;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+       .sidebar {
+    width: 200px;
+    background: #7bdde8;
+    padding: 15px;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+        .sidebar h2 {
+            margin-top: 0;
+        }
+
+        .blog-button {
+    display: block;
+    width: 100%;
+    margin: 7px 0;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: #24505c;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+        .blog-button:hover {
+            background: #d7fbff;
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .content h1 {
+            font-size: 35px;
+        }
+
+        .back {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back a {
+            color: #24505c;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    ♡ MIRAI BLOGS ♡
+</header>
+
+<div class="blog-window">
+
+    <div class="sidebar">
+
+        <h2>BLOGS</h2>
+
+        <button class="blog-button" onclick="showBlog('diziler')">
+            📺 DİZİLER
+        </button>
+
+        <button class="blog-button" onclick="showBlog('muzik')">
+            🎵 MÜZİK
+        </button>
+
+        <button class="blog-button" onclick="showBlog('oyunlar')">
+            🎮 OYUNLAR
+        </button>
+
+        <button class="blog-button" onclick="showBlog('anime')">
+            🌸 ANİME
+        </button>
+
+        <button class="blog-button" onclick="showBlog('sanat')">
+            🎨 SANAT
+        </button>
+
+        <button class="blog-button" onclick="showBlog('random')">
+            💭 RANDOM
+        </button>
+
+    </div>
+
+    <div class="content" id="blog-content">
+
+        <h1>Bir blog seç! ♡</h1>
+
+        <p>
+            Soldaki başlıklardan birine tıklayarak
+            okumak istediğin blogu seçebilirsin.
+        </p>
+
+    </div>
+
+</div>
+
+<div class="back">
+    <a href="index.html">← Ana sayfaya dön</a>
+</div>
+
+<script>
+
+function showBlog(blog) {
+
+    const content = document.getElementById("blog-content");
+
+    if (blog === "diziler") {
+
+        content.innerHTML = `
+            <h1>📺 Diziler</h1>
+            <p>
+                Buraya diziler hakkındaki blog yazını yazacaksın.
+            </p>
+        `;
+
+    }
+
+    else if (blog === "muzik") {
+
+        content.innerHTML = `
+            <h1>🎵 Müzik</h1>
+            <p>
+                Sevdiğim sanatçılar, müzik türleri ve
+                müzik hakkında düşüncelerim...
+            </p>
+        `;
+
+    }
+
+    else if (blog === "oyunlar") {
+
+        content.innerHTML = `
+            <h1>🎮 Oyunlar</h1>
+            <p>
+                Sevdiğim oyunlar ve oyunlar hakkındaki
+                düşüncelerim burada olacak.
+            </p>
+        `;
+
+    }
+
+    else if (blog === "anime") {
+
+        content.innerHTML = `
+            <h1>🌸 Anime</h1>
+            <p>
+                İzlediğim animeler ve sevdiğim karakterler...
+            </p>
+        `;
+
+    }
+
+    else if (blog === "sanat") {
+
+        content.innerHTML = `
+            <h1>🎨 Sanat</h1>
+            <p>
+                Çizimler, sanatçılar ve sevdiğim eserler...
+            </p>
+        `;
+
+    }
+
+    else if (blog === "random") {
+
+        content.innerHTML = `
+            <h1>💭 Random</h1>
+            <p>
+                Aklıma gelen çeşitli şeyler, küçük yazılar
+                ve günlük düşüncelerim.
+            </p>
+        `;
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
