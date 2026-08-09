@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>♡ Müzik ♡</title>
+
+    <style>
+
+        /* =========================================
+           FRUTIGER AERO MÜZİK SAYFASI
+        ========================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #08AEEA 0%,
+                    #25D8F2 35%,
+                    #63E6A0 72%,
+                    #27C94F 100%
+                );
+
+            color: #18566d;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================
+           ANA ALAN
+        ========================================= */
+
+        .music-page {
+            position: relative;
+
+            min-height: 100vh;
+
+            padding: 35px 40px 45px;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================================
+           BULUTLAR
+        ========================================= */
+
+        .cloud {
+            position: absolute;
+
+            background: rgba(255, 255, 255, 0.78);
+
+            border-radius: 100px;
+
+            filter: blur(1px);
+
+            box-shadow:
+                0 8px 20px rgba(70, 170, 190, 0.15);
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: "";
+
+            position: absolute;
+
+            background: inherit;
+
+            border-radius: 50%;
+        }
+
+        .cloud-one {
+            width: 230px;
+            height: 65px;
+
+            top: 55px;
+            left: 5%;
+        }
+
+        .cloud-one::before {
+            width: 90px;
+            height: 90px;
+
+            left: 35px;
+            bottom: 15px;
+        }
+
+        .cloud-one::after {
+            width: 115px;
+            height: 115px;
+
+            right: 25px;
+            bottom: 5px;
+        }
+
+        .cloud-two {
+            width: 180px;
+            height: 52px;
+
+            top: 125px;
+            right: 7%;
+
+            opacity: 0.65;
+        }
+
+        .cloud-two::before {
+            width: 75px;
+            height: 75px;
+
+            left: 25px;
+            bottom: 10px;
+        }
+
+        .cloud-two::after {
+            width: 90px;
+            height: 90px;
+
+            right: 20px;
+            bottom: 4px;
+        }
+
+
+        /* =========================================
+           BALONCUKLAR
+        ========================================= */
+
+        .bubble {
+            position: absolute;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 30% 25%,
+                    rgba(255,255,255,0.95),
+                    rgba(255,255,255,0.25) 25%,
+                    rgba(80,210,240,0.35) 70%,
+                    rgba(30,160,205,0.15)
+                );
+
+            border: 2px solid rgba(255,255,255,0.65);
+
+            box-shadow:
+                inset -5px -7px 10px rgba(0,120,170,0.12),
+                0 4px 12px rgba(0,130,170,0.15);
+
+            pointer-events: none;
+        }
+
+        .bubble-one {
+            width: 48px;
+            height: 48px;
+
+            right: 10%;
+            top: 20%;
+        }
+
+        .bubble-two {
+            width: 22px;
+            height: 22px;
+
+            left: 7%;
+            top: 42%;
+        }
+
+        .bubble-three {
+            width: 32px;
+            height: 32px;
+
+            right: 4%;
+            bottom: 18%;
+        }
+
+        .bubble-four {
+            width: 16px;
+            height: 16px;
+
+            left: 17%;
+            bottom: 12%;
+        }
+
+
+        /* =========================================
+           BAŞLIK
+        ========================================= */
+
+        .music-header {
+            position: relative;
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+            z-index: 5;
+        }
+
+        .music-header h1 {
+            margin: 0;
+
+            color: white;
+
+            font-size: 46px;
+
+            letter-spacing: 5px;
+
+            text-shadow:
+                0 3px 0 #168bb6,
+                0 6px 10px rgba(0, 90, 130, 0.25);
+        }
+
+        .music-header p {
+            margin: 8px 0 0;
+
+            color: #eaffff;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            text-shadow:
+                0 2px 4px rgba(0, 100, 130, 0.3);
+        }
+
+        .music-stars {
+            margin-top: 8px;
+
+            color: #fffbd0;
+
+            font-size: 19px;
+
+            letter-spacing: 10px;
+
+            text-shadow:
+                0 0 7px white;
+        }
+
+
+        /* =========================================
+           İÇERİK ALANI
+        ========================================= */
+
+        .music-container {
+            position: relative;
+
+            width: min(1100px, 94%);
+
+            margin: auto;
+
+            padding: 28px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.70),
+                    rgba(210,250,255,0.48)
+                );
+
+            border: 3px solid rgba(255,255,255,0.8);
+
+            box-shadow:
+                0 12px 30px rgba(0,100,130,0.22),
+                inset 0 3px 5px rgba(255,255,255,0.9),
+                inset 0 -8px 20px rgba(30,180,180,0.10);
+
+            backdrop-filter: blur(8px);
+
+            z-index: 4;
+        }
+
+
+        /* =========================================
+           BÖLÜM BAŞLIĞI
+        ========================================= */
+
+        .section-title {
+            text-align: center;
+
+            margin: 0 0 23px;
+
+            color: #16729a;
+
+            font-size: 23px;
+
+            text-shadow:
+                0 1px 0 white;
+        }
+
+        .section-title span {
+            color: #49a85e;
+
+            margin: 0 8px;
+        }
+
+
+        /* =========================================
+           ALBÜM KARTI
+        ========================================= */
+
+        .album-card {
+            display: flex;
+
+            gap: 25px;
+
+            padding: 22px;
+
+            border-radius: 23px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.88),
+                    rgba(225,251,250,0.72)
+                );
+
+            border: 2px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 7px 18px rgba(0,100,130,0.16),
+                inset 0 2px 5px rgba(255,255,255,0.9);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .album-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            right: -80px;
+            top: -90px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,0.8),
+                    rgba(255,255,255,0)
+                );
+        }
+
+
+        /* =========================================
+           ALBÜM KAPAĞI
+        ========================================= */
+
+        .album-cover {
+            width: 190px;
+            height: 190px;
+
+            flex-shrink: 0;
+
+            object-fit: cover;
+
+            border-radius: 18px;
+
+            border: 4px solid white;
+
+            box-shadow:
+                0 6px 15px rgba(0,90,120,0.25),
+                0 0 12px rgba(255,255,255,0.8);
+        }
+
+
+        /* =========================================
+           ALBÜM BİLGİLERİ
+        ========================================= */
+
+        .album-info {
+            flex: 1;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .album-info h2 {
+            margin: 0;
+
+            color: #126d96;
+
+            font-size: 30px;
+
+            text-shadow:
+                0 1px 0 white;
+        }
+
+        .artist {
+            margin: 5px 0 15px;
+
+            color: #38905e;
+
+            font-size: 16px;
+
+            font-weight: bold;
+        }
+
+        .album-description {
+            color: #397080;
+
+            line-height: 1.5;
+
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================================
+           ŞARKI LİSTESİ
+        ========================================= */
+
+        .track-box {
+            width: 100%;
+
+            max-height: 145px;
+
+            overflow-y: auto;
+
+            padding: 11px 15px;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(220,250,255,0.75),
+                    rgba(190,241,222,0.60)
+                );
+
+            border: 2px solid rgba(255,255,255,0.8);
+
+            box-shadow:
+                inset 0 2px 5px rgba(50,140,160,0.10);
+        }
+
+        .track-box h3 {
+            margin: 0 0 7px;
+
+            color: #14799c;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+        }
+
+        .track-box ol {
+            margin: 0;
+
+            padding-left: 25px;
+
+            color: #316d78;
+
+            font-size: 13px;
+
+            line-height: 1.65;
+        }
+
+        .track-box li::marker {
+            color: #40a86a;
+        }
+
+
+        /* =========================================
+           FAVORİ ŞARKI
+        ========================================= */
+
+        .favorite {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            margin-top: 14px;
+
+            padding: 10px 15px;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffe0f3,
+                    #dff8ff
+                );
+
+            border: 2px solid white;
+
+            box-shadow:
+                0 4px 9px rgba(100,100,140,0.12),
+                inset 0 2px 3px rgba(255,255,255,0.9);
+
+            color: #8c4c82;
+        }
+
+        .favorite-icon {
+            font-size: 20px;
+        }
+
+        .favorite small {
+            display: block;
+
+            color: #5d8790;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+        }
+
+        .favorite strong {
+            display: block;
+
+            margin-top: 2px;
+
+            color: #824a8a;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           SAYFA BUTONLARI
+        ========================================= */
+
+        .music-navigation {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 25px;
+
+            margin-top: 28px;
+        }
+
+        .music-button {
+            border: 2px solid white;
+
+            border-radius: 18px;
+
+            padding: 11px 20px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff,
+                    #c7f2f4
+                );
+
+            color: #197394;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 10px rgba(0,100,130,0.18),
+                inset 0 2px 4px white;
+
+            transition: 0.2s;
+        }
+
+        .music-button:hover {
+            transform: translateY(-3px);
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff,
+                    #b5f0d0
+                );
+
+            box-shadow:
+                0 8px 15px rgba(0,100,130,0.25),
+                0 0 10px rgba(255,255,255,0.8);
+        }
+
+        .page-number {
+            color: white;
+
+            text-align: center;
+
+            font-weight: bold;
+
+            text-shadow:
+                0 2px 4px rgba(0,90,120,0.4);
+        }
+
+        .page-number small {
+            display: block;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+        }
+
+        .page-number strong {
+            font-size: 19px;
+        }
+
+
+        /* =========================================
+           TELEFON
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .music-page {
+                padding: 25px 15px;
+            }
+
+            .music-header h1 {
+                font-size: 32px;
+            }
+
+            .music-container {
+                width: 100%;
+
+                padding: 17px;
+            }
+
+            .album-card {
+                flex-direction: column;
+
+                align-items: center;
+
+                text-align: center;
+            }
+
+            .album-cover {
+                width: 170px;
+                height: 170px;
+            }
+
+            .track-box {
+                text-align: left;
+            }
+
+            .favorite {
+                text-align: left;
+            }
+
+            .music-navigation {
+                gap: 10px;
+            }
+
+            .music-button {
+                padding: 9px 12px;
+
+                font-size: 11px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="music-page">
+
+        <!-- DEKORASYONLAR -->
+
+        <div class="cloud cloud-one"></div>
+        <div class="cloud cloud-two"></div>
+
+        <div class="bubble bubble-one"></div>
+        <div class="bubble bubble-two"></div>
+        <div class="bubble bubble-three"></div>
+        <div class="bubble bubble-four"></div>
+
+
+        <!-- BAŞLIK -->
+
+        <header class="music-header">
+
+            <h1>♡ MÜZİK ♡</h1>
+
+            <p>
+                En sevdiğim albümler, şarkılar ve müzikler
+            </p>
+
+            <div class="music-stars">
+                ✦ ✧ ♪ ✧ ✦
+            </div>
+
+        </header>
+
+
+        <!-- ANA MÜZİK ALANI -->
+
+        <main class="music-container">
+
+            <h2 class="section-title">
+                <span>♪</span>
+                EN SEVDİĞİM ALBÜMLER
+                <span>♫</span>
+            </h2>
+
+
+            <!-- ALBÜM -->
+
+            <div class="album-card">
+
+                <img
+                    class="album-cover"
+                    src="ALBUM_KAPAGI_BURAYA"
+                    alt="Lady Gaga - MAYHEM albüm kapağı"
+                >
+
+
+                <div class="album-info">
+
+                    <h2>MAYHEM</h2>
+
+                    <p class="artist">
+                        ♫ Lady Gaga
+                    </p>
+
+                    <p class="album-description">
+                        Bu albüm hakkında kendi notunu buraya
+                        yazabilirsin.
+                    </p>
+
+
+                    <!-- ŞARKI LİSTESİ -->
+
+                    <div class="track-box">
+
+                        <h3>
+                            ♪ ALBÜMDEKİ ŞARKILAR
+                        </h3>
+
+                        <ol>
+
+                            <li>Disease</li>
+                            <li>Abracadabra</li>
+                            <li>Garden Of Eden</li>
+                            <li>Perfect Celebrity</li>
+                            <li>Vanish Into You</li>
+                            <li>Killah (feat. Gesaffelstein)</li>
+                            <li>Zombieboy</li>
+                            <li>LoveDrug</li>
+                            <li>How Bad Do U Want Me</li>
+                            <li>Don't Call Tonight</li>
+                            <li>Shadow Of A Man</li>
+                            <li>The Beast</li>
+                            <li>Blade Of Grass</li>
+                            <li>Die With A Smile</li>
+        
+                        </ol>
+
+                    </div>
+
+
+                    <!-- FAVORİ -->
+
+                    <div class="favorite">
+
+                        <span class="favorite-icon">
+                            ♡
+                        </span>
+
+                        <div>
+
+                            <small>
+                                BENİM FAVORİM
+                            </small>
+
+                            <strong>
+                                Abracadabra
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SAYFA GEÇİŞİ -->
+
+            <div class="music-navigation">
+
+                <button class="music-button">
+                    ♡ ÖNCEKİ
+                </button>
+
+                <div class="page-number">
+
+                    <small>SAYFA</small>
+
+                    <strong>
+                        1 / 3
+                    </strong>
+
+                </div>
+
+                <button class="music-button">
+                    SONRAKİ ♡
+                </button>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
