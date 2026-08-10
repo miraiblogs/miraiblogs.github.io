@@ -60,7 +60,20 @@
 
             overflow: hidden;
         }
+.music-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 35px 40px 45px;
+    overflow: hidden;
+}
 
+.music-page:not(.active) {
+    display: none;
+}
+
+.music-page.active {
+    display: block;
+}
 
         /* =========================================
            BULUTLAR
