@@ -1005,10 +1005,8 @@
 </body>
     <script>
 function playSpotify(trackId) {
-   <script>
-function playSpotify(uri) {
     if (window.spotifyController) {
-        window.spotifyController.loadEntity(uri);
+        window.spotifyController.loadUri("spotify:track:" + trackId);
     }
 }
 
@@ -1040,13 +1038,8 @@ previousButton.addEventListener("click", () => {
         showPage(currentPage);
     }
 });
-</script>
 
-<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
-
-<script>
 window.onSpotifyIframeApiReady = (IFrameAPI) => {
-
     const element = document.getElementById("spotify-player");
 
     const options = {
@@ -1061,6 +1054,12 @@ window.onSpotifyIframeApiReady = (IFrameAPI) => {
 
     IFrameAPI.createController(element, options, callback);
 };
+</script>
+
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+
+</body>
+</html>
 </script>
 
 </body>
