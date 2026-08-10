@@ -35,7 +35,24 @@
                     #39D322 74%,
                     #18566D 100% 
                 );
+.frutiger-bg {
+  background: linear-gradient(135deg, 
+    #159FE3 0%, 
+    #35C5E8 35%, 
+    #39D322 74%, 
+    #18566D 100%
+  );
+  background-size: 200% 200%;
+  animation: aeroMovement 15s ease infinite; /* Canlılık katmak için hafif hareket */
+  height: 100vh;
+  width: 100%;
+}
 
+@keyframes aeroMovement {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
             color: #18566d;
 
             overflow-x: hidden;
