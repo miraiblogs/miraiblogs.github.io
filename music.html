@@ -844,7 +844,8 @@
 
                         <ol>
 
-                            <li>Gün Doğumu</li>
+                            <li
+                            onclick="playSpotify('spotify:track:6xS2wmr7GulzpjHJBrgMu')"></li>
                             <li>Beni Benimle Bırak</li>
                             <li>Dünyanın Sonuna Doğmuşum</li>
                             <li>Cevapsız Sorular</li>
@@ -862,7 +863,7 @@
                             <li>Gün Batımı</li>
                             
                   </ol>  
-
+<div id="spotify-player"></div>
               </div>
 
 
@@ -1029,5 +1030,42 @@
             showPage(currentPage);
         }
     });
+</script>
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+
+<script>
+window.onSpotifyIframeApiReady = (IFrameAPI) => {
+
+    const element = document.getElementById("spotify-player");
+
+    const options = {
+        width: "100%",
+        height: "152",
+        uri: "spotify:track:6xS2wmr7GulzpjHJBbrgMu"
+    };
+
+    const callback = (EmbedController) => {
+
+        window.spotifyController = EmbedController;
+
+        document.querySelectorAll("[onclick^='playSpotify']").forEach(song => {
+            song.addEventListener("click", () => {
+                const uri = song.getAttribute("onclick")
+                    .match(/spotify:track:[^']+/)[0];
+
+                EmbedController.loadEntity(uri);
+            });
+        });
+
+    };
+
+    IFrameAPI.createController(element, options, callback);
+};
+
+function playSpotify(uri) {
+    if (window.spotifyController) {
+        window.spotifyController.loadEntity(uri);
+    }
+}
 </script>
 </html>
