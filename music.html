@@ -1005,44 +1005,44 @@
 </body>
     <script>
 function playSpotify(trackId) {
-    document.getElementById("spotify-player").innerHTML =
-        '<iframe src="https://open.spotify.com/embed/track/' + trackId + '" ' +
-        'width="100%" height="152" frameborder="0" ' +
-        'allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" ' +
-        'loading="lazy"></iframe>';
-}
-</script>
-<script>
-    let currentPage = 0;
-
-    const pages = document.querySelectorAll(".music-page");
-    const nextButton = document.querySelector(".music-button:last-child");
-    const previousButton = document.querySelector(".music-button:first-child");
-
-    function showPage(pageNumber) {
-        pages.forEach((page, index) => {
-            page.classList.toggle("active", index === pageNumber);
-        });
-
-        document.querySelector(".page-number strong").textContent =
-            `${pageNumber + 1} / ${pages.length}`;
+   <script>
+function playSpotify(uri) {
+    if (window.spotifyController) {
+        window.spotifyController.loadEntity(uri);
     }
+}
 
-    nextButton.addEventListener("click", () => {
-        if (currentPage < pages.length - 1) {
-            currentPage++;
-            showPage(currentPage);
-        }
+let currentPage = 0;
+
+const pages = document.querySelectorAll(".music-page");
+const nextButton = document.querySelector(".music-button:last-child");
+const previousButton = document.querySelector(".music-button:first-child");
+
+function showPage(pageNumber) {
+    pages.forEach((page, index) => {
+        page.classList.toggle("active", index === pageNumber);
     });
 
-    previousButton.addEventListener("click", () => {
-        if (currentPage > 0) {
-            currentPage--;
-            showPage(currentPage);
-        }
-    });
+    document.querySelector(".page-number strong").textContent =
+        `${pageNumber + 1} / ${pages.length}`;
+}
+
+nextButton.addEventListener("click", () => {
+    if (currentPage < pages.length - 1) {
+        currentPage++;
+        showPage(currentPage);
+    }
+});
+
+previousButton.addEventListener("click", () => {
+    if (currentPage > 0) {
+        currentPage--;
+        showPage(currentPage);
+    }
+});
 </script>
-    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 
 <script>
 window.onSpotifyIframeApiReady = (IFrameAPI) => {
@@ -1056,27 +1056,13 @@ window.onSpotifyIframeApiReady = (IFrameAPI) => {
     };
 
     const callback = (EmbedController) => {
-
         window.spotifyController = EmbedController;
-
-        document.querySelectorAll("[onclick^='playSpotify']").forEach(song => {
-            song.addEventListener("click", () => {
-                const uri = song.getAttribute("onclick")
-                    .match(/spotify:track:[^']+/)[0];
-
-                EmbedController.loadEntity(uri);
-            });
-        });
-
     };
 
     IFrameAPI.createController(element, options, callback);
 };
+</script>
 
-function playSpotify(uri) {
-    if (window.spotifyController) {
-        window.spotifyController.loadEntity(uri);
-    }
-}
-    <script>
+</body>
+</html>
 </html>
