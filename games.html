@@ -1,14 +1,253 @@
-<!DOCTYPE html>
-<html lang="tr">
+<!DOCTYPE html><html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games | Mirai Blogs</title>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Games | Mirai Blogs</title>
 
-<body>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #dff8f5;
+        color: #333;
+    }
 
-    <h1>Oyunlar</h1>
+    .games-container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 50px 25px;
+    }
+
+    .games-title {
+        text-align: center;
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
+
+    .games-subtitle {
+        text-align: center;
+        font-size: 17px;
+        margin-bottom: 45px;
+        opacity: 0.75;
+    }
+
+    .games-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+
+    .game-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .game-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .game-cover {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .game-info {
+        padding: 22px;
+    }
+
+    .game-info h2 {
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+
+    .game-type {
+        font-size: 13px;
+        opacity: 0.65;
+        margin-bottom: 12px;
+    }
+
+    .game-description {
+        line-height: 1.5;
+        font-size: 14px;
+    }
+
+    .game-button {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 18px;
+        border-radius: 12px;
+        background: #333;
+        color: white;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+    }
+
+    .game-button:hover {
+        opacity: 0.75;
+    }
+</style>
+
+</head><body><main class="games-container">
+
+    <h1 class="games-title">🎮 Games</h1>
+
+    <p class="games-subtitle">
+        Oynadığım ve sevdiğim oyunlardan küçük bir arşiv.
+    </p>
+
+    <section class="games-grid">
+
+        <!-- OMORI -->
+        <article class="game-card">
+
+            <img
+                class="game-cover"
+                src="OYUN_KAPAGI_BURAYA"
+                alt="OMORI"
+            >
+
+            <div class="game-info">
+
+                <h2>OMORI</h2>
+
+                <p class="game-type">
+                    RPG • Psikolojik Korku • Hikâye
+                </p>
+
+                <p class="game-description">
+                    Hikâyesi ve karakterleriyle öne çıkan,
+                    keşif ve sıra tabanlı savaş mekaniklerini
+                    bir araya getiren bir RPG.
+                </p>
+
+                <a
+                    class="game-button"
+                    href="OYUN_LINKI_BURAYA"
+                    target="_blank"
+                >
+                    🎮 Oyuna Git
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- UNDERTALE -->
+        <article class="game-card">
+
+            <img
+                class="game-cover"
+                src="OYUN_KAPAGI_BURAYA"
+                alt="Undertale"
+            >
+
+            <div class="game-info">
+
+                <h2>Undertale</h2>
+
+                <p class="game-type">
+                    RPG • Macera • Hikâye
+                </p>
+
+                <p class="game-description">
+                    Kararlarınızın hikâyeyi etkileyebildiği,
+                    karakterleri ve mizahıyla tanınan
+                    bağımsız bir RPG.
+                </p>
+
+                <a
+                    class="game-button"
+                    href="OYUN_LINKI_BURAYA"
+                    target="_blank"
+                >
+                    🎮 Oyuna Git
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- DELTARUNE -->
+        <article class="game-card">
+
+            <img
+                class="game-cover"
+                src="OYUN_KAPAGI_BURAYA"
+                alt="Deltarune"
+            >
+
+            <div class="game-info">
+
+                <h2>Deltarune</h2>
+
+                <p class="game-type">
+                    RPG • Macera • Hikâye
+                </p>
+
+                <p class="game-description">
+                    Farklı karakterler, keşif ve savaş
+                    mekanikleriyle ilerleyen hikâye odaklı
+                    bir RPG macerası.
+                </p>
+
+                <a
+                    class="game-button"
+                    href="OYUN_LINKI_BURAYA"
+                    target="_blank"
+                >
+                    🎮 Oyuna Git
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- DDLC -->
+        <article class="game-card">
+
+            <img
+                class="game-cover"
+                src="OYUN_KAPAGI_BURAYA"
+                alt="Doki Doki Literature Club"
+            >
+
+            <div class="game-info">
+
+                <h2>Doki Doki Literature Club</h2>
+
+                <p class="game-type">
+                    Visual Novel • Psikolojik Korku
+                </p>
+
+                <p class="game-description">
+                    Başlangıçta sıradan bir görsel roman
+                    gibi görünen, hikâyesi ilerledikçe
+                    farklılaşan bir oyun.
+                </p>
+
+                <a
+                    class="game-button"
+                    href="OYUN_LINKI_BURAYA"
+                    target="_blank"
+                >
+                    🎮 Oyuna Git
+                </a>
+
+            </div>
+
+        </article>
+
+    </section>
+
+</main>
 
 </body>
 </html>
